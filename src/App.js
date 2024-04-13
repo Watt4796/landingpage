@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import './style.css';
+import Expertise from './components/Expertise';
+import AboutUs from './components/AboutUs';
+import ContactForm from './components/Contact';
+import Copyright from './components/Copyright';
+import Header from './components/Header';
+import Main from './components/Main';
+import Works from './components/Works';
+import {gsap, Power3} from 'gsap';
+import Parallax from './components/Parallax';
 
 function App() {
+
+  let tl = new gsap.timeline();
+  let ease = Power3.easeOut();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className='app'>
+      <Header timeline={tl} ease={ease} />
+      <Main timeline = {tl} ease={ease} />
+      <Works />
+      <Expertise />
+      <AboutUs />
+      <Parallax />
+      <ContactForm />
+      <Copyright />
     </div>
   );
 }
